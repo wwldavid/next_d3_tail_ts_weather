@@ -30,3 +30,10 @@
 -- d3 @types/d3 date-fns
 
 10. npm install d3 @types/d3 date-fns
+
+-- openweather
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}
+（If city name contains spaces, it is recommended to use encodeURIComponent(city) to encode it. For example, “New York” becomes “New%20York”, preventing URL parsing errors.）
+
+--
