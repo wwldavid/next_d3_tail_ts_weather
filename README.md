@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+-- create Nextjs project / install dependencies / configure tailwindcss /
 
-## Getting Started
+1. npx create-next-app@latest next_d3_tail_ts_weather --typescript --tailwind --eslint
+2. npm install -D tailwindcss@3.3.5 postcss autoprefixer (install stable version)
+3. npx tailwindcss init -p
+4. npm list tailwindcss postcss autoprefixer (check and delete conflicting tailwindcss PostCSS plugin: @tailwindcss/postcss@4.0.17)
+5. rm -rf node_modules package-lock.json
+6. npm cache clean --force
+7. npm install -D tailwindcss@3.3.5 postcss autoprefixer
+8. npm config set registry https://registry.npmmirror.com
+9. npm install -D tailwindcss@3.3.5 postcss autoprefixer
 
-First, run the development server:
+   postcss.config.js:
+   module.exports = {
+   plugins: {
+   tailwindcss: {},
+   autoprefixer: {},
+   },
+   };
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   tailwind.config.js:
+   module.exports = {
+   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+   theme: {
+   extend: {},
+   },
+   plugins: [],
+   };
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-- d3 @types/d3 date-fns
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+10. npm install d3 @types/d3 date-fns
