@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import WeatherChart from "./components/WeatherChart";
 
 const cities = ["Calgary", "Vancouver","Shanghai", "Tokyo","New York", "London"]
 
@@ -27,8 +28,8 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-teal-200 p-4">
-      <h1 className="text-2xl font-bold text-center">Weather Information</h1>
+    <div className="min-h-screen bg-gray-100 p-4">
+      <h1 className="text-2xl font-bold text-center">Weather Application</h1>
       <select className="w-full p-2 mt-4 border rounded" value={city} onChange={ e => setCity(e.target.value)}>
        {cities.map((c)=>(
         <option key={c} value={c}> {c}</option>
@@ -38,12 +39,12 @@ export default function Home() {
       {weather && (
         <div className="text-center mt-4">
           <h2 className="text-xl font-bold">{weather.name}</h2>
-          <p>{weather.weather[0].description}°C</p>
-          <p className="text-lg font-semibold">{weather.main.temp}</p>
+          <p>{weather.weather[0].description}</p>
+          <p className="text-lg font-semibold">{weather.main.temp}°C</p>
         </div>
       )}
        
-       {/* <WeatherChart city={city}/> */}
+       <WeatherChart city={city}/>
 
     </div>
   );
