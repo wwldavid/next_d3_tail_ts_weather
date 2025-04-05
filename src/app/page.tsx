@@ -62,7 +62,7 @@ export default function Home() {
       </select>
 
       {weather && (
-        <div className="bg-white shodow-md rounded-lg p-4 text-center mt-6">
+        <div className="bg-white shodow-md rounded-lg p-4 text-center">
           <h2 className="text-xl font-bold mb-4">City: <span className="text-emerald-800">{weather.name}</span></h2>
 
           <div className="w-1/3 mx-auto p-[2px] rounded-xl bg-gradient-to-r from-purple-400 via-pink-400 to-red-400">
@@ -80,6 +80,8 @@ export default function Home() {
         </div>
       )}
        
+       <h2>5-Day Weather Forecast:</h2>
+      
        <WeatherChart city={city}/>
 
     </div>

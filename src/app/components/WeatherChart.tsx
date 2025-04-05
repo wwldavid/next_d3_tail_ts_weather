@@ -22,8 +22,8 @@ export default function WeatherChart({city}: {city: string}){
 
   useEffect(() => {
     if(temperatureData.length === 0) return;
-    const width = 400;
-    const height = 200;
+    const width = 450;
+    const height = 250;
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
     d3.select("#chart").selectAll("*").remove();
@@ -59,6 +59,20 @@ export default function WeatherChart({city}: {city: string}){
     svg.append("g")
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y));
+
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", margin.left - 25)
+      .attr("text-anchor", "middle")
+      .text("Temperature");
+
+      svg.append("text")
+      .attr("x", width - margin.right)
+      .attr("y", height - margin.bottom + 30)
+      .attr("text-anchor", "end")
+      .text("Date");
+
 
   },[temperatureData]);
 
